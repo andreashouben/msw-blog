@@ -1,26 +1,35 @@
 import React from "react";
-import styled from "styled-components";
+import {
+  Bio,
+  CharacterDiv,
+  Image,
+  Label,
+  LabelKey,
+  LabelVal,
+} from "./elements";
 
 const Character = ({ bio }) => {
-  const Image = styled.img`
-    width: 250px;
-  `;
-  const Bio = styled.div`
-    display: inline-block;
-  `;
-  const Label = styled.span``;
-
   return (
-    <>
+    <CharacterDiv>
       <Image src={bio.image} alt={`${bio.name}`} />
       <Bio>
-        <Label>Name: {bio.name}</Label>
-        <Label>Status: {bio.status}</Label>
-        <Label>Species: {bio.species}</Label>
-        <Label>Gender: {bio.gender}</Label>
-        <Label>Origin: {bio.origin.name}</Label>
+        <Label>
+          <LabelKey>Name:</LabelKey> <LabelVal>{bio.name}</LabelVal>
+        </Label>
+        <Label>
+          <LabelKey>Status:</LabelKey> <LabelVal>{bio.status}</LabelVal>
+        </Label>
+        <Label>
+          <LabelKey>Species:</LabelKey> <LabelVal>{bio.species}</LabelVal>
+        </Label>
+        <Label>
+          <LabelKey>Gender:</LabelKey> <LabelVal>{bio.gender}</LabelVal>
+        </Label>
+        <Label>
+          <LabelKey>Origin:</LabelKey> <LabelVal>{bio.origin.name}</LabelVal>
+        </Label>
       </Bio>
-    </>
+    </CharacterDiv>
   );
 };
 
