@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import Character from "./character";
 
 describe("Character", () => {
@@ -26,14 +27,15 @@ describe("Character", () => {
       expect(image).toBeVisible();
     });
 
-    test.each([["name", "Morty Smith"]])(
+    test.each([
+        ["Name", "Morty Smith"],
+
+    ])(
       "should show a label %s with value %s",
       (label, value) => {
-        const texts = screen.getByLabelText(label);
-        //const definition = screen.getByRole("definition", { name: "status" });
+        const text = screen.getByText(`${label}: ${value}`);
 
-        expect(texts).toBe("");
-        //expect(definition).toBeVisible();
+        expect(text).toBeVisible()
       }
     );
   });
