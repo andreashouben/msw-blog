@@ -1,24 +1,27 @@
 import React from "react";
+import styled from "styled-components";
 
-const Character = ({bio}) => {
-    return (
-        <>
-            <img src={bio.img} alt={`${bio.name}`}/>
-            <div>
+const Character = ({ bio }) => {
+  const Image = styled.img`
+    width: 250px;
+  `;
+  const Bio = styled.div`
+    display: inline-block;
+  `;
+  const Label = styled.span``;
 
-                <span>Name: {bio.name}</span>
-            </div>
-            {/*<dt aria-label="status">Status:</dt>
-        <dd>{bio.status}</dd>
-         <dt>Species:</dt>
-        <dd>{bio.species}</dd>
-        <dt>Gender:</dt>
-        <dd>{bio.male}</dd>
-        <dt>Origin:</dt>
-        <dd>{bio.origin}</dd> */}
-        </>
-    );
-
+  return (
+    <>
+      <Image src={bio.image} alt={`${bio.name}`} />
+      <Bio>
+        <Label>Name: {bio.name}</Label>
+        <Label>Status: {bio.status}</Label>
+        <Label>Species: {bio.species}</Label>
+        <Label>Gender: {bio.gender}</Label>
+        <Label>Origin: {bio.origin.name}</Label>
+      </Bio>
+    </>
+  );
 };
 
 export default Character;

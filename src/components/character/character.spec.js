@@ -21,22 +21,22 @@ describe("Character", () => {
       render(<Character bio={morty} />);
     });
 
-    it("should display the image of the character", () => {
+    it("should display the image of the character with the character name as alt text", () => {
       const image = screen.getByAltText(/Morty Smith/i);
 
-      expect(image).toBeVisible();
+      expect(image.src).toEqual(morty.image);
     });
 
     test.each([
-        ["Name", "Morty Smith"],
+      ["Name", "Morty Smith"],
+      ["Status", "Alive"],
+      ["Species", "Human"],
+      ["Gender", "Male"],
+      ["Origin", "Earth"],
+    ])("should show a label %s with value %s", (label, value) => {
+      const text = screen.getByText(`${label}: ${value}`);
 
-    ])(
-      "should show a label %s with value %s",
-      (label, value) => {
-        const text = screen.getByText(`${label}: ${value}`);
-
-        expect(text).toBeVisible()
-      }
-    );
+      expect(text).toBeVisible();
+    });
   });
 });
