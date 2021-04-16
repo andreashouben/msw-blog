@@ -48,7 +48,11 @@ describe("Character", () => {
     });
 
     it('should have the aria role "figure" labeled with "Avatar of Morty Smith"', () => {
-      screen.getByRole("figure", { name: "Avatar of Morty Smith" });
+      const figure = screen.getByRole("figure", {
+        name: "Avatar of Morty Smith",
+      });
+
+      expect(figure).toBeVisible();
     });
   });
 });
