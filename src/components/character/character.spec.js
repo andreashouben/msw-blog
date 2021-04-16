@@ -34,9 +34,21 @@ describe("Character", () => {
       ["Gender", "Male"],
       ["Origin", "Earth"],
     ])("should show a label %s with value %s", (label, value) => {
-      const text = screen.getByText(`${label}: ${value}`);
+      const text = screen.getByText((content, node) => {
+        const hasText = (node) => node.textContent === `${label}: ${value}`;
+        const nodeHasText = hasText(node);
+        const childrenDontHaveText = Array.from(node.children).every(
+          (child) => !hasText(child)
+        );
+
+        return nodeHasText && childrenDontHaveText;
+      });
 
       expect(text).toBeVisible();
+    });
+
+    it('should have the aria role "figure" labeled with "Avatar of Morty Smith"', () => {
+      screen.getByRole("figure", { name: "Avatar of Morty Smith" });
     });
   });
 });

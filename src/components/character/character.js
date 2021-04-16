@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Bio,
   CharacterDiv,
@@ -10,7 +11,7 @@ import {
 
 const Character = ({ bio }) => {
   return (
-    <CharacterDiv>
+    <CharacterDiv name={bio.name}>
       <Image src={bio.image} alt={`${bio.name}`} />
       <Bio>
         <Label>

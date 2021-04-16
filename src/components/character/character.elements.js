@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const CharacterDiv = styled.div`
+export const CharacterDiv = styled.div.attrs((props) => ({
+  role: "figure",
+  "aria-label": `Avatar of ${props.name}`,
+}))`
   display: flex;
 `;
 export const Image = styled.img`
