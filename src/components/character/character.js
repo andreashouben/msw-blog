@@ -6,7 +6,7 @@ import {
   Label,
   LabelKey,
   LabelVal,
-} from "./elements";
+} from "./character.elements";
 
 const Character = ({ bio }) => {
   return (
