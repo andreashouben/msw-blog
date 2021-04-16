@@ -25,14 +25,20 @@ describe("Character Wheel", () => {
     ).toBeVisible();
   });
 
-  it("should show a next button", () => {
+  it("should show no buttons when no next or prev function is present", () => {
     render(<CharacterWheel currentCharacter={morty} />);
+
+    expect(screen.queryAllByRole("button")).toEqual([]);
+  });
+
+  it("should show a next button if onClickNext is present", () => {
+    render(<CharacterWheel currentCharacter={morty} onClickNext={() => {}} />);
 
     expect(screen.getByRole("button", { name: "Next" })).toBeVisible();
   });
 
-  it("should show a previous button", () => {
-    render(<CharacterWheel currentCharacter={morty} />);
+  it("should show a previous button if onClickPrevious is present", () => {
+    render(<CharacterWheel currentCharacter={morty} onClickPrev={() => {}} />);
 
     expect(screen.getByRole("button", { name: "Previous" })).toBeVisible();
   });

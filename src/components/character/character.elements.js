@@ -8,6 +8,7 @@ export const CharacterDiv = styled.div.attrs((props) => ({
 `;
 export const Image = styled.img`
   width: 250px;
+  height: 250px;
 `;
 export const Bio = styled.ul`
   list-style-type: none;

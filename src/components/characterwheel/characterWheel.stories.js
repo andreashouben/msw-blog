@@ -26,3 +26,15 @@ Default.args = {
   onClickNext: () => console.log("Next was clicked"),
   onClickPrev: () => console.log("Previous was clicked"),
 };
+
+export const OnlyPrevButton = Template.bind({});
+OnlyPrevButton.args = {
+  currentCharacter: morty,
+  onClickPrev: () => console.log("Previous was clicked"),
+};
+
+export const OnlyNextButton = Template.bind({});
+OnlyNextButton.args = {
+  currentCharacter: morty,
+  onClickNext: () => console.log("Next was clicked"),
+};

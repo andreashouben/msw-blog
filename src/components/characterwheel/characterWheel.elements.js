@@ -3,12 +3,14 @@ import styled from "styled-components";
 export const CharacterWheelDiv = styled.div`
   display: inline-flex;
   flex-direction: column;
+  width: 650px;
 `;
 
 export const ButtonGroup = styled.div`
   display: flex;
-  justify-content: space-between;
   margin-top: 1em;
+  justify-content: ${(props) =>
+    props.alignRight ? "flex-end" : "space-between"};
 `;
 
 export const Button = styled.button`

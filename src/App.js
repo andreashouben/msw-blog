@@ -1,14 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Main from "./pages/main";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Rick and Morty Character Wheel</h1>
-      </header>
-    </div>
-  );
+  return <Main />;
 }
 
 export default App;

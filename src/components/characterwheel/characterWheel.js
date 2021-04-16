@@ -4,7 +4,6 @@ import {
   Button,
   ButtonGroup,
   CharacterWheelDiv,
-  NavButtons,
 } from "./characterWheel.elements";
 
 export const CharacterWheel = ({
@@ -15,9 +14,9 @@ export const CharacterWheel = ({
   return (
     <CharacterWheelDiv>
       <Character bio={currentCharacter} />
-      <ButtonGroup>
-        <Button onClick={() => onClickPrev()}>Previous</Button>
-        <Button onClick={() => onClickNext()}>Next</Button>
+      <ButtonGroup alignRight={!onClickPrev}>
+        {onClickPrev && <Button onClick={() => onClickPrev()}>Previous</Button>}
+        {onClickNext && <Button onClick={() => onClickNext()}>Next</Button>}
       </ButtonGroup>
     </CharacterWheelDiv>
   );
