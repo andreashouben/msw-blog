@@ -9,7 +9,7 @@ const Main = () => {
   const init = useCallback(async () => {
     await wheel.init();
     setCurrentChar(await wheel.currentChar());
-  }, [setCurrentChar]);
+  }, [setCurrentChar, wheel]);
 
   useEffect(() => {
     init();
