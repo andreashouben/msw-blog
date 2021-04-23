@@ -1,60 +1,34 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { CharacterWheel } from "../../components/characterwheel/characterWheel";
+import Characterwheel from "../../model/characterwheel";
 
 const Main = () => {
-  const [characters, setCharacters] = useState([]);
-  const [nextPage, setNextPage] = useState(undefined);
-  const [prevPage, setPrevPage] = useState(undefined);
+  const [wheel] = useState(new Characterwheel());
+  const [currentChar, setCurrentChar] = useState(undefined);
 
-  const [index, setIndex] = useState(0);
-
-  const fetchPage = useCallback(
-    async (page) => {
-      const response = await fetch(page);
-      const data = await response.json();
-      setCharacters(data.results);
-      setNextPage(data.info.next);
-      setPrevPage(data.info.prev);
-    },
-    [setCharacters, setNextPage, setPrevPage]
-  );
+  const init = useCallback(async () => {
+    await wheel.init();
+    setCurrentChar(await wheel.currentChar());
+  }, [setCurrentChar]);
 
   useEffect(() => {
-    const fetchCharacters = async () => {
-      await fetchPage("https://rickandmortyapi.com/api/character");
-    };
-    fetchCharacters();
-  }, [fetchPage]);
-
-  const currentChar = characters[index];
+    init();
+  }, [init]);
 
   const next = async () => {
-    if (!characters[index + 1]) {
-      await fetchPage(nextPage);
-      setIndex(0);
-    } else {
-      setIndex((index) => index + 1);
-    }
+    setCurrentChar(await wheel.nextChar());
   };
   const prev = async () => {
-    if (index === 0) {
-      await fetchPage(prevPage);
-      setIndex(characters.length - 1);
-    } else {
-      setIndex((index) => index - 1);
-    }
+    setCurrentChar(await wheel.prevChar());
   };
-
-  const hasNext = characters[index + 1] || nextPage;
-  const hasPrev = characters[index - 1] || prevPage;
 
   return (
     <>
       {currentChar && (
         <CharacterWheel
           currentCharacter={currentChar}
-          onClickNext={hasNext && (() => next())}
-          onClickPrev={hasPrev && (() => prev())}
+          onClickNext={() => next()}
+          onClickPrev={() => prev()}
         />
       )}
     </>
