@@ -35,30 +35,17 @@ Seiten in der Datenbank befinden sowie die Links zur nächsten und vorherigen Se
 
 ### Beispiel:
 
-```javascript
+```json
 {
-    "info"
-:
-    {
-        "count"
-    :
-        671,
-            "pages"
-    :
-        34,
-            "next"
-    :
-        "https://rickandmortyapi.com/api/character/?page=2",
-            "prev"
-    :
-        null
-    }
-,
-    "results"
-:
-    [
-        // ...
-    ]
+  "info": {
+    "count": 671,
+    "pages": 34,
+    "next": "https://rickandmortyapi.com/api/character/?page=2",
+    "prev": null
+  },
+  "results": [
+    // ...
+  ]
 }
 ```
 
