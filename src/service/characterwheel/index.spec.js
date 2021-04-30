@@ -1,7 +1,10 @@
 import CharacterwheelService from "./index";
+import RickandmortyApiAdapter from "../../adapters/rickandmortyapiadapter";
 
 describe("CharacterWheel", () => {
-  const characterWheel = new CharacterwheelService();
+  const characterWheel = new CharacterwheelService(
+    new RickandmortyApiAdapter()
+  );
 
   describe("after initializing", () => {
     beforeEach(async () => {
