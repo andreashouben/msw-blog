@@ -1,7 +1,7 @@
-import Characterwheel from "./index";
+import CharacterwheelService from "./index";
 
 describe("CharacterWheel", () => {
-  const characterWheel = new Characterwheel();
+  const characterWheel = new CharacterwheelService();
 
   describe("after initializing", () => {
     beforeEach(async () => {

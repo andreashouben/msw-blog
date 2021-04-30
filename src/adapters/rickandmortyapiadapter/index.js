@@ -1,8 +1,8 @@
-class Rickandmortyapiadapter {
+class RickandmortyApiAdapter {
   static #characterUrl = "https://rickandmortyapi.com/api/character";
 
   counts = async () => {
-    const response = await fetch(Rickandmortyapiadapter.#characterUrl);
+    const response = await fetch(RickandmortyApiAdapter.#characterUrl);
     const data = await response.json();
     const { count, pages } = data.info;
     return { pages, characters: count };
@@ -11,10 +11,10 @@ class Rickandmortyapiadapter {
   fetchResultsOfPage = async (page) => {
     const params = new URLSearchParams({ page });
     const response = await fetch(
-      `${Rickandmortyapiadapter.#characterUrl}?${params}`
+      `${RickandmortyApiAdapter.#characterUrl}?${params}`
     );
     const data = await response.json();
     return data.results;
   };
 }
-export default Rickandmortyapiadapter;
+export default RickandmortyApiAdapter;

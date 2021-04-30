@@ -1,9 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { CharacterWheel } from "../../components/characterwheel/characterWheel";
-import Characterwheel from "../../model/characterwheel";
+import CharacterwheelService from "../../service/characterwheel";
+import RickandmortyApiAdapter from "../../adapters/rickandmortyapiadapter";
 
 const Main = () => {
-  const [wheel] = useState(new Characterwheel());
+  const [wheel] = useState(
+    new CharacterwheelService(new RickandmortyApiAdapter())
+  );
   const [currentChar, setCurrentChar] = useState(undefined);
 
   const init = useCallback(async () => {
@@ -18,6 +21,7 @@ const Main = () => {
   const next = async () => {
     setCurrentChar(await wheel.nextChar());
   };
+
   const prev = async () => {
     setCurrentChar(await wheel.prevChar());
   };

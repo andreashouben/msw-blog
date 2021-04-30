@@ -1,8 +1,8 @@
-import Rickandmortyapiadapter from "./index";
+import RickandmortyApiAdapter from "./index";
 
 describe("Rick and Morty Api Adapter", () => {
   it("should give an object containing the count of pages and characters", async () => {
-    const rickandmortyapiadapter = new Rickandmortyapiadapter();
+    const rickandmortyapiadapter = new RickandmortyApiAdapter();
 
     const numberOfPages = await rickandmortyapiadapter.counts();
 
@@ -13,7 +13,7 @@ describe("Rick and Morty Api Adapter", () => {
   });
 
   it("should fetch the results for a page", async () => {
-    const rickandmortyapiadapter = new Rickandmortyapiadapter();
+    const rickandmortyapiadapter = new RickandmortyApiAdapter();
 
     const page34 = await rickandmortyapiadapter.fetchResultsOfPage(34);
 

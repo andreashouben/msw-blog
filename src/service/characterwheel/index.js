@@ -1,16 +1,17 @@
-import Rickandmortyapiadapter from "../../adapters/rickandmortyapiadapter";
-
-class Characterwheel {
+class CharacterwheelService {
   #lastPage;
   #api;
   #currentCharIndex;
   #currentPage;
   #currentPageResults;
 
+  constructor(api) {
+    this.#api = api;
+  }
+
   init = async () => {
     this.#currentCharIndex = 0;
     this.#currentPage = 1;
-    this.#api = new Rickandmortyapiadapter();
     this.#lastPage = (await this.#api.counts()).pages;
     await this.#updatePage();
   };
@@ -70,4 +71,4 @@ class Characterwheel {
   };
 }
 
-export default Characterwheel;
+export default CharacterwheelService;
