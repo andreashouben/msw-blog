@@ -15,7 +15,8 @@ großartige Lösung. Sie verwendet die
 Backend zu schalten. Auf diese Art und Weise können Requests zum Backend abgefangen und simuliert werden. Das Beste
 daran ist, dass dies auf allen Ebenen der Testpyramide funktioniert und dadurch eine hohe Wiederverwendbarkeit schafft.
 
-Den Einsatz des Mock Service Workers möchte ich anhand einer Beispielanwendung erläutern.
+Den Einsatz des Mock Service Workers möchte ich anhand einer Beispielanwendung, dem ["Magnificent Rick & Morty Character
+Wheel"](https://msw-blog-demo-app.vercel.app/) erläutern.
 
 ## Das Backend
 
