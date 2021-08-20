@@ -1,19 +1,19 @@
 # Mock Service Worker - Einfach Backends mocken
 
 Beim Entwickeln einer clientseitigen Webanwendung ist die Kommunikation zwischen Frontend und Backend essentiel.
-Dementsprechend ist es wichtig, diese hinreichend zu testen. Das ist allerdings kein triviales Problem. Es gibt etliche
-Fehlerszenarien, die es zu beachten gilt. Darüber hinaus ist die Kommunikation asynchron, was für sich allein gestellt
+Dementsprechend ist es wichtig, diese hinreichend zu testen. Das ist allerdings kein triviales Problem, da es etliche
+Fehlerszenarien gibt, die es zu beachten gilt. Darüber hinaus ist die Kommunikation asynchron, was für sich allein gestellt
 schon eine gewisse Komplexität mitbringt.
 
-Test Frameworks wir Jest bieten zwar eine Möglichkeit um Aufrufe zum Server zu mocken, allerdings sind diese imperativ
+Test Frameworks wie Jest bieten zwar eine Möglichkeit um Aufrufe zum Server zu mocken, allerdings sind diese imperativ
 und damit nicht sonderlich flexibel. Eine weitere Möglichkeit ist es, einen Testserver aufzusetzen, um ein Backend zu
 simulieren. Das ist jedoch recht aufwändig und nicht so einfach in einer CI Pipeline zu integrieren.
 
 Die API Mocking Library "[Mock Service Worker](https://mswjs.io)" greift genau diese Probleme auf und bietet eine
 großartige Lösung. Sie verwendet die
 [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) um sich zwischen Frontend und
-Backend zu schalten. Auf diese Art und Weise können Requests zum Backend abgefangen und simuliert werden. Das Beste
-daran ist, dass dies auf allen Ebenen der Testpyramide funktioniert und dadurch eine hohe Wiederverwendbarkeit schafft.
+Backend zu schalten. Hierdurch können Requests zum Backend abgefangen und simuliert werden. Das Beste
+daran ist, dass dies auf allen Ebenen der Testpyramide funktioniert und dadurch eine hohe Wiederverwendbarkeit geschaffen wird.
 
 Den Einsatz des Mock Service Workers möchte ich anhand einer Beispielanwendung, dem ["Magnificent Rick & Morty Character
 Wheel"](https://msw-blog-demo-app.vercel.app/) erläutern.
@@ -47,14 +47,13 @@ Seiten in der Datenbank befinden, sowie die Links zur nächsten und vorherigen S
 
 ![MortyMockup](mortymock.png)
 
-Die React Anwendung ermöglicht uns, die Charaktere der Datenbank anzuzeigen.
-
-Über die Buttons Next und Previous kann man zum jeweils nächsten oder vorherigen Character wechseln.
+Eine React Anwendung soll es uns ermöglichen, die Charaktere der Datenbank anzuzeigen und über zwei Buttons zum jeweils 
+nächsten bzw. vorherigen Character zu wechseln.
 
 Eine besondere Anforderung soll sein, dass wir durch die Liste rotieren können. Das bedeutet das der Button "Next" beim
 letzten Charakter zum ersten springt und umgekehrt. Eine klassiche Karusselfunktion also.
 
-Die Komponente `Characterwheel` erhält den jeweils aktuell gewählten Charakter und bietet Callbacks für die beiden
+Die Komponente `CharacterWheel` erhält den jeweils aktuell gewählten Charakter und bietet Callbacks für die beiden
 Buttons. Bei den einzelnen Elementen der Komponente handelt es sich
 um [styled components](https://styled-components.com/), daher die eventuell etwas verwirrenden Elementnamen.
 
@@ -76,7 +75,7 @@ export const CharacterWheel = ({
 };
 ```
 
-Da unsere Anwendung nur aus einer Seite besteht, wird diese Komponente direkt in der main page eingebunden.
+Da unsere Anwendung nur aus einer Seite besteht, wird die Komponente direkt in der Hauptseite eingebunden:
 
 ```javascript
 //pages/main/index.js
@@ -121,7 +120,7 @@ Die Seite hat zwei Statusvariablen. Den aktuellen Charakter `currentChar` sowie 
 CharacterWheelService. Dieser bietet Methoden zum Abrufen des aktuellen Characters sowie zum vor- und zurück wechseln.
 
 ```javascript
-
+//Pfadangabe? Hast du bisher überall gemacht.
 class CharacterwheelService {
 
     // ...
@@ -148,9 +147,9 @@ Der Service bindet dabei einen Adapter ein, der die Rick and Morty API bedient u
 Charakteren abruft.
 
 ```javascript
+//Pfadangabe? Hast du bisher überall gemacht.
 class RickandmortyApiAdapter {
     static #characterUrl = "https://rickandmortyapi.com/api/character";
-
 
     // ...
 
@@ -172,7 +171,7 @@ export default RickandmortyApiAdapter;
 
 ## Einsatz in Unit Tests
 
-Sowohl für den Service, als auch für den API Adapter existieren Unit Tests.
+Sowohl für den Service, als auch für den API Adapter werden Unit Tests implementiert.
 
 ### Adapter Test
 
@@ -200,7 +199,7 @@ const pageContentOfPage34 = {
 ### Service Test
 
 ```javascript
-
+//Pfadangabe? Hast du bisher überall gemacht.
 describe("CharacterWheel", () => {
     const characterWheel = new CharacterwheelService(
         new RickandmortyApiAdapter()
@@ -256,7 +255,7 @@ const characterWithId671 = { /* die echte api testen */};
 Beide Tests sind an sich sehr überschaubar. Allerdings arbeiten sie aktuell gegen die echte API und genau das birgt
 unterschiedliche Gefahrenquellen, die die Tests fehlschlagen lassen können:
 
-* Die API könnte nicht verfügbar sein.
+* Die API könnte nicht verfügbar sein
 * Die Datenbank wird erweitert und liefert andere Metriken
 * Die API wird geändert und liefert Objekte in einem anderen Format
 
@@ -271,13 +270,13 @@ Charaktere durchgehen, um wieder beim ersten zu landen.
 
 ## Einführung des Mock Service Worker
 
-Mit dem Mock Service Worker können wir diesen Problemen entgegentreten indem wir das Backend einfach mocken. Das geht
+Mit dem Mock Service Worker können wir den genannten Problemen entgegentreten indem wir das Backend mocken. Das geht
 mit dem MSW sehr einfach. Nach der Installation mit `npm install -D msw` legen wir in dem Verzeichnis `src/mocks`
-eine Datei `handlers.js` an, hier legen wir die zu mockenden Backend Funktionen ab.
+eine Datei `handlers.js` an, in der wir die zu mockenden Backend Funktionen ablegen.
 
 In unserem Fall ist das der GET-Endpunkt `https://rickandmortyapi.com/api/character` den ich im
 Abschnitt [Das Backend](#das-backend) bereits beschrieben habe. Allerdings möchten wir in unseren Tests nur zwei
-Charaktere zurückgeben die wir auch selber definieren. Über das `rest` objekt das wir aus dem Modul `msw` importieren
+Charaktere zurückgeben die wir auch selber definieren. Über das `rest` Objekt das wir aus dem Modul `msw` importieren,
 können wir sehr einfach Endpunkte erzeugen. Es genügt, die nach der entsprechenden HTTP Methode benannte Funktion
 aufzurufen. In unserem Fall `rest.get`. Jede dieser Funktion erhält als Parameter die URL sowie eine Callback Funktion
 mit den drei Parametern
@@ -286,7 +285,7 @@ mit den drei Parametern
 * res – eine Funktion, die es ermöglicht eine Response zu erzeugen.
 * ctx – ein Hilfsobjekt, dass Funktionen bietet, um die Respnse nach unseren Wünschen zu transformieren.
 
-```js
+```javascript
 //handlers.js
 import {rest} from "msw";
 
@@ -340,7 +339,7 @@ Damit unser Testcode statt der echten API den Handler aufruft, müssen wir jest 
 starten. Dazu legen wir zuerst im Mockverzeichnis eine Datei `server.js` an und registrieren die Handler am zu
 startenden Server.
 
-```js
+```javascript
 //src/mocks/server.js
 import {setupServer} from "msw/node";
 import {handlers} from "./handlers";
@@ -349,7 +348,7 @@ export const server = setupServer(...handlers);
 
 ```
 
-Da das Project mit der create-react-app erstellt wurde, gibt es bereits eine Datei `setupTests.js` im `src` Verzeichnis.
+Da das Projekt mit der create-react-app erstellt wurde, gibt es bereits eine Datei `setupTests.js` im `src` Verzeichnis.
 (Ist dies nicht der
 Fall, [kann man Jest auch sehr einfach so konfigurieren, dass eine Datei vor dem Start der Tests ausgeführt wird](https://jestjs.io/docs/configuration#setupfilesafterenv-array))
 . Diese machen wir uns zunutze, um den Server vor den Tests zu starten und danach zu beenden. Nach jedem ausgeführten
@@ -358,7 +357,7 @@ werden [um definierte handler zu überschreiben](https://mswjs.io/docs/api/setup
 nützlich, wenn z. B. getestet werden soll, dass ein Endpunkt einen Fehler zurückgibt. Der Aufruf ohne Parameter sorgt
 dafür das die Handler in den Ursprungsstatus zurückversetzt werden (so wie in der handlers.js definiert).
 
-```js
+```javascript
 //setupTests.js
 import {server} from "./mocks/server";
 
@@ -369,10 +368,10 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 ```
 
-Das war es schon. Startet man nun die Tests, wird der Handler des Mock Service Worker aufgerufen. Es sind keine
-Änderungen am produktiven Code notwendig. Lediglich die Testdaten müssen etwas angepasst werden. Das Beste an der Sache
-ist, dass backend calls für die noch keine Handler bestehen, weiterhin vom vorhandenen Backend bedient werden. Möchte
-ich den MSW in ein existierendes Projekt integrieren, kann ich Schritt für Schritt echte calls durch Mocks ersetzen.
+Das war es schon. Startet man nun die Tests, wird der Handler des Mock Service Worker aufgerufen und ein von der echten API entkoppeltes
+Testen wird ermöglicht. Es sind keine Änderungen am produktiven Code notwendig. Lediglich die Testdaten müssen etwas angepasst werden. 
+Das Beste an der Sache ist, dass backend calls für die noch keine Handler bestehen, weiterhin vom vorhandenen Backend bedient werden. 
+Möchte ich den MSW in ein existierendes Projekt integrieren, kann ich Schritt für Schritt echte calls durch Mocks ersetzen.
 
 ## Ausblick
 
