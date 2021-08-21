@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "SteKoe",
+      "name": "Stephan Köninger",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1809221?v=4",
+      "profile": "http://www.stekoe.de",
+      "contributions": [
+        "review"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "msw-blog",
+  "projectOwner": "andreashouben",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
