@@ -58,6 +58,7 @@ Buttons. Bei den einzelnen Elementen der Komponente handelt es sich
 um [styled components](https://styled-components.com/), daher die eventuell etwas verwirrenden Elementnamen.
 
 ```javascript
+//components/characterwheel/characterWheel.js
 export const CharacterWheel = ({
                                    currentCharacter,
                                    onClickNext,
@@ -120,7 +121,7 @@ Die Seite hat zwei Statusvariablen. Den aktuellen Charakter `currentChar` sowie 
 CharacterWheelService. Dieser bietet Methoden zum Abrufen des aktuellen Characters sowie zum vor- und zurück wechseln.
 
 ```javascript
-//Pfadangabe? Hast du bisher überall gemacht.
+//service/characterwheel/index.js
 class CharacterwheelService {
 
     // ...
@@ -147,7 +148,7 @@ Der Service bindet dabei einen Adapter ein, der die Rick and Morty API bedient u
 Charakteren abruft.
 
 ```javascript
-//Pfadangabe? Hast du bisher überall gemacht.
+//service/characterwheel/index.js
 class RickandmortyApiAdapter {
     static #characterUrl = "https://rickandmortyapi.com/api/character";
 
@@ -176,6 +177,7 @@ Sowohl für den Service, als auch für den API Adapter werden Unit Tests impleme
 ### Adapter Test
 
 ```javascript
+//adapters/rickandmortyapiadapter/index.spec.js
 import RickandmortyApiAdapter from "./index";
 
 describe("Rick and Morty Api Adapter", () => {
@@ -191,7 +193,7 @@ describe("Rick and Morty Api Adapter", () => {
     });
 });
 const pageContentOfPage34 = {
-    // ...Haufenweise code nur fürs Testsn    
+    // ...Haufenweise code nur fürs Testen    
 }
 
 ```
@@ -199,7 +201,7 @@ const pageContentOfPage34 = {
 ### Service Test
 
 ```javascript
-//Pfadangabe? Hast du bisher überall gemacht.
+//service/characterwheel/index.spec.js
 describe("CharacterWheel", () => {
     const characterWheel = new CharacterwheelService(
         new RickandmortyApiAdapter()
@@ -286,7 +288,7 @@ mit den drei Parametern
 * ctx – ein Hilfsobjekt, dass Funktionen bietet, um die Respnse nach unseren Wünschen zu transformieren.
 
 ```javascript
-//handlers.js
+//mocks/handlers.js
 import {rest} from "msw";
 
 export const handlers = [
@@ -340,7 +342,7 @@ starten. Dazu legen wir zuerst im Mockverzeichnis eine Datei `server.js` an und 
 startenden Server.
 
 ```javascript
-//src/mocks/server.js
+//mocks/server.js
 import {setupServer} from "msw/node";
 import {handlers} from "./handlers";
 
