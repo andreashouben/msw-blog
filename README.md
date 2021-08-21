@@ -25,8 +25,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
+     <td align="center"><a href="https://github.com/andreashouben"><img src="https://avatars.githubusercontent.com/u/3708288?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andreas Houben</b></sub></a><br /><a href="https://github.com/andreashouben/msw-blog/commits?author=andreashouben" title="Code">💻</a> <a href="#content-andreashouben" title="Content">🖋</a> <a href="https://github.com/andreashouben/msw-blog/commits?author=andreashouben" title="Documentation">📖</a> <a href="#ideas-andreashouben" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="http://www.stekoe.de"><img src="https://avatars.githubusercontent.com/u/1809221?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stephan Köninger</b></sub></a><br /><a href="https://github.com/andreashouben/msw-blog/pulls?q=is%3Apr+reviewed-by%3ASteKoe" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://github.com/andreashouben"><img src="https://avatars.githubusercontent.com/u/3708288?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andreas Houben</b></sub></a><br /><a href="https://github.com/andreashouben/msw-blog/commits?author=andreashouben" title="Code">💻</a> <a href="#content-andreashouben" title="Content">🖋</a> <a href="https://github.com/andreashouben/msw-blog/commits?author=andreashouben" title="Documentation">📖</a> <a href="#ideas-andreashouben" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
