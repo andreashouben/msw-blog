@@ -48,7 +48,7 @@ Seiten in der Datenbank befinden, sowie die Links zur nächsten und vorherigen S
 ![MortyMockup](mortymock.png)
 
 Eine React Anwendung soll es uns ermöglichen, die Charaktere der Datenbank anzuzeigen und über zwei Buttons zum jeweils 
-nächsten bzw. vorherigen Character zu wechseln.
+nächsten bzw. vorherigen Charakter zu wechseln.
 
 Eine besondere Anforderung soll sein, dass wir durch die Liste rotieren können. Das bedeutet das der Button "Next" beim
 letzten Charakter zum ersten springt und umgekehrt. Eine klassiche Karusselfunktion also.
@@ -118,7 +118,7 @@ const Main = () => {
 ```
 
 Die Seite hat zwei Statusvariablen. Den aktuellen Charakter `currentChar` sowie das `wheel` als Instanz des
-CharacterWheelService. Dieser bietet Methoden zum Abrufen des aktuellen Characters sowie zum vor- und zurück wechseln.
+CharacterWheelService. Dieser bietet Methoden zum Abrufen des aktuellen Charakters sowie zum vor- und zurück wechseln.
 
 ```javascript
 //service/characterwheel/index.js
@@ -264,8 +264,8 @@ unterschiedliche Gefahrenquellen, die die Tests fehlschlagen lassen können:
 Darüber hinaus arbeiten die Assertions in den Tests mit echten Objekten aus der API. Diese sind enorm groß und blähen
 die Tests unnötig auf.
 
-Ein Test der bis zum letzen Character blättert, um festzustellen, ob man bei einem Aufruf von
-_nextChar()_ wieder auf dem ersten Character landet, fehlt komplett. Diese Funktionalität wird zwar durch den letzten
+Ein Test der bis zum letzen Charakter blättert, um festzustellen, ob man bei einem Aufruf von
+_nextChar()_ wieder auf dem ersten Charakter landet, fehlt komplett. Diese Funktionalität wird zwar durch den letzten
 Test _"returns the first character when caling prev() and next()"_ implizit abgedeckt, allerdings wäre ein expliziter
 Test auch wünschenswert. Aus Perfomancegründen wurde jedoch darauf verzichtet. Schließlich müsste man über 600
 Charaktere durchgehen, um wieder beim ersten zu landen.
