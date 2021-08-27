@@ -1,22 +1,22 @@
 # Mock Service Worker - Einfach Backends mocken
 
 Beim Entwickeln einer clientseitigen Webanwendung ist die Kommunikation zwischen Frontend und Backend essentiel.
-Dementsprechend ist es wichtig, diese hinreichend zu testen. Das ist allerdings kein triviales Problem, da es etliche
-Fehlerszenarien gibt, die es zu beachten gilt. Darüber hinaus ist die Kommunikation asynchron, was für sich allein gestellt
-schon eine gewisse Komplexität mitbringt.
+Dementsprechend ist es wichtig, diese hinreichend zu testen. Das ist allerdings nicht trivial, da es etliche
+Fehlerszenarien gibt, die es zu beachten gilt. Darüber hinaus ist die Kommunikation asynchron, was für sich allein
+gestellt schon eine gewisse Komplexität mitbringt.
 
-Test Frameworks wie Jest bieten zwar eine Möglichkeit um Aufrufe zum Server zu mocken, allerdings sind diese imperativ
-und damit nicht sonderlich flexibel. Eine weitere Möglichkeit ist es, einen Testserver aufzusetzen, um ein Backend zu
-simulieren. Das ist jedoch recht aufwändig und nicht so einfach in einer CI Pipeline zu integrieren.
+Test Frameworks wie Jest bieten zwar eine Möglichkeit um HTTP Requests zum Server zu mocken, allerdings sind diese
+imperativ und damit nicht sonderlich flexibel. Eine weitere Möglichkeit ist es, einen Testserver aufzusetzen, um ein
+Backend zu simulieren. Das ist jedoch recht aufwändig und nicht so einfach in einer CI Pipeline zu integrieren.
 
 Die API Mocking Library "[Mock Service Worker](https://mswjs.io)" greift genau diese Probleme auf und bietet eine
 großartige Lösung. Sie verwendet die
 [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) um sich zwischen Frontend und
-Backend zu schalten. Hierdurch können Requests zum Backend abgefangen und simuliert werden. Das Beste
-daran ist, dass dies auf allen Ebenen der Testpyramide funktioniert und dadurch eine hohe Wiederverwendbarkeit geschaffen wird.
+Backend zu schalten. Hierdurch können Requests zum Backend abgefangen und simuliert werden. Das Beste daran ist, dass
+dies auf allen Ebenen der Testpyramide funktioniert und dadurch eine hohe Wiederverwendbarkeit geschaffen wird.
 
-Den Einsatz des Mock Service Workers möchte ich anhand einer Beispielanwendung, dem ["Magnificent Rick & Morty Character
-Wheel"](https://msw-blog-demo-app.vercel.app/) erläutern.
+Den Einsatz des Mock Service Workers möchte ich anhand einer Beispielanwendung,
+dem ["Magnificent Rick & Morty Character Wheel"](https://msw-blog-demo-app.vercel.app/) erläutern.
 
 ## Das Backend
 
@@ -170,9 +170,10 @@ export default RickandmortyApiAdapter;
 
 ```
 
-## Einsatz in Unit Tests
+## Einsatz in Tests
 
-Sowohl für den Service, als auch für den API Adapter werden Unit Tests implementiert.
+Sowohl für den Service, als auch für den API Adapter werden Integrationstests implementiert, die direkt mit der Rick &
+Morty API interagieren.
 
 ### Adapter Test
 
