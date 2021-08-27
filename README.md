@@ -1,6 +1,6 @@
 # Magnificent Rick & Morty Character Wheel
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![example workflow](https://github.com/andreashouben/msw-blog/actions/workflows/node.js.yml/badge.svg)
@@ -25,8 +25,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-     <td align="center"><a href="https://github.com/andreashouben"><img src="https://avatars.githubusercontent.com/u/3708288?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andreas Houben</b></sub></a><br /><a href="https://github.com/andreashouben/msw-blog/commits?author=andreashouben" title="Code">💻</a> <a href="#content-andreashouben" title="Content">🖋</a> <a href="https://github.com/andreashouben/msw-blog/commits?author=andreashouben" title="Documentation">📖</a> <a href="#ideas-andreashouben" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="http://www.stekoe.de"><img src="https://avatars.githubusercontent.com/u/1809221?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stephan Köninger</b></sub></a><br /><a href="https://github.com/andreashouben/msw-blog/pulls?q=is%3Apr+reviewed-by%3ASteKoe" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/andreashouben"><img src="https://avatars.githubusercontent.com/u/3708288?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andreas Houben</b></sub></a><br /><a href="https://github.com/andreashouben/msw-blog/commits?author=andreashouben" title="Code">💻</a> <a href="#content-andreashouben" title="Content">🖋</a> <a href="https://github.com/andreashouben/msw-blog/commits?author=andreashouben" title="Documentation">📖</a> <a href="#ideas-andreashouben" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://wittek.dev"><img src="https://avatars.githubusercontent.com/u/5088104?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kevin Wittek</b></sub></a><br /><a href="https://github.com/andreashouben/msw-blog/pulls?q=is%3Apr+reviewed-by%3Akiview" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
