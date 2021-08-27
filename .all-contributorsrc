@@ -25,6 +25,15 @@
         "doc",
         "ideas"
       ]
+    },
+    {
+      "login": "kiview",
+      "name": "Kevin Wittek",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5088104?v=4",
+      "profile": "https://wittek.dev",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
